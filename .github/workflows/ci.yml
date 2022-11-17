@@ -20,4 +20,4 @@ jobs:
         # If you chose API tokens for write access OR if you have a private cache
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - name: "nix develop"
-      run: nix develop
+      run: nix --keep-build-log develop
