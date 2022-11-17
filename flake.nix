@@ -14,13 +14,6 @@
       {
         overlay = (final: prev: {
           haskell-hello = final.pkgs.haskell.packages.${ghcVersion}.callPackage ./haskell-hello.nix {  };
-          haskell = prev.haskell // {
-            packageOverrides = hfinal: hprev: {
-              mkDerivation = args: hprev.mkDerivation (args // {
-                doCheck = false;
-              });
-            };
-          };
         });
         packages = forAllSystems (system: {
           haskell-hello = nixpkgsFor.${system}.haskell-hello;
