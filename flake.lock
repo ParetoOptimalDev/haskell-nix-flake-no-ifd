@@ -1,5 +1,17 @@
 {
   "nodes": {
+    "amazonka": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-x/Qxo7GYAHIGiD2ePHLa6zoR4QQrRr/Ze0V7TJgDbJc=",
+        "type": "tarball",
+        "url": "https://github.com/brendanhay/amazonka/archive/006563901b94ee586453855ebd73ad69442f9235.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/brendanhay/amazonka/archive/006563901b94ee586453855ebd73ad69442f9235.tar.gz"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1668326430,
@@ -15,6 +27,7 @@
     },
     "root": {
       "inputs": {
+        "amazonka": "amazonka",
         "nixpkgs": "nixpkgs"
       }
     }

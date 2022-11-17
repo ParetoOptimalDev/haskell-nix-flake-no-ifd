@@ -69,6 +69,9 @@ executable try-haskell-hello-template
     -- Other library packages from which modules are imported.
     build-depends:    base ^>=4.16.1.0
                     , aeson
+                    , amazonka
+                    , amazonka-core
+                    , amazonka-sso
                     , cassava
                     , conduit
                     , containers
