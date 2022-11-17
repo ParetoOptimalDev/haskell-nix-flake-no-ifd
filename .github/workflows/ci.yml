@@ -7,7 +7,7 @@ jobs:
       nixbuild_ssh_key: ${{ secrets.nixbuild_ssh_key }}
   nix-develop:
     name: "develop"
-      strategy:
+    strategy:
       matrix:
         target:
           - { os: 'darwin', platform: 'macos-latest', arch: 'arm64' }
