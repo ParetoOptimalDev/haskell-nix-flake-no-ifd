@@ -79,7 +79,7 @@ executable try-haskell-hello-template
                     , lens
                     , mongoDB
                     , persistent
-                    , persistent-mongoDB
+                    -- , persistent-mongoDB
                     , persistent-postgresql
                     , postgresql-simple
                     , QuickCheck
