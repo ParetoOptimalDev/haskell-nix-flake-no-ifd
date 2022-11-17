@@ -7,11 +7,7 @@ jobs:
       nixbuild_ssh_key: ${{ secrets.nixbuild_ssh_key }}
   nix-develop:
     name: "develop"
-    strategy:
-      matrix:
-        target:
-          - { os: 'linux', platform: 'ubuntu-latest', arch: 'amd64' }
-    runs-on: ${{ matrix.target.platform }}
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: cachix/install-nix-action@v18
