@@ -68,7 +68,29 @@ executable try-haskell-hello-template
 
     -- Other library packages from which modules are imported.
     build-depends:    base ^>=4.16.1.0
+                    , aeson
+                    , cassava
+                    , conduit
+                    , containers
+                    , cryptonite
+                    , esqueleto
+                    , exceptions
+                    , JuicyPixels
                     , lens
+                    , mongoDB
+                    , persistent
+                    , persistent-mongoDB
+                    , persistent-postgresql
+                    , postgresql-simple
+                    , QuickCheck
+                    , servant
+                    , servant-server
+                    , servant-swagger
+                    , servant-swagger-ui
+                    , stm
+                    , text
+                    , time
+                    , uuid
 
     -- Directories containing source files.
     hs-source-dirs:   app
