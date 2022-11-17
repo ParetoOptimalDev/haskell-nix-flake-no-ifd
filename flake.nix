@@ -26,7 +26,6 @@
                                             packages = p: [self.packages.${system}.haskell-hello];
                                             withHoogle = true;
                                             buildInputs = with haskellPackages; [
-                                              haskell-language-server
                                               cabal-install
                                             ];
                                             # Change the prompt to show that you are in a devShell
