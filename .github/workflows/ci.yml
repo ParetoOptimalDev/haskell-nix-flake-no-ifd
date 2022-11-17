@@ -3,7 +3,7 @@ on: push
 jobs:
   nix-develop:
     name: "develop"
-      strategy:
+    strategy:
       matrix:
         target:
           - { os: 'darwin', platform: 'macos-latest', arch: 'arm64' }
