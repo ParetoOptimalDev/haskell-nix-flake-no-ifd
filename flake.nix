@@ -3,6 +3,7 @@
   inputs.nixpkgs.url = "nixpkgs";
   outputs = { self, nixpkgs }:
     let
+      ghcVersion = "925";
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
       nixpkgsFor = forAllSystems (system: import nixpkgs {
@@ -12,14 +13,14 @@
     in
     {
       overlay = (final: prev: {
-        haskell-hello = final.haskellPackages.callPackage ./haskell-hello.nix {  };
+        haskell-hello = final.pkgs.haskell.packages.${ghcVersion}.callPackage ./haskell-hello.nix {  };
       });
       packages = forAllSystems (system: {
          haskell-hello = nixpkgsFor.${system}.haskell-hello;
       });
       defaultPackage = forAllSystems (system: self.packages.${system}.haskell-hello);
       checks = self.packages;
-      devShell = forAllSystems (system: let haskellPackages = nixpkgsFor.${system}.haskellPackages;
+      devShell = forAllSystems (system: let haskellPackages = nixpkgsFor.${system}.pkgs.haskell.packages.${ghcVersion};
         in haskellPackages.shellFor {
           packages = p: [self.packages.${system}.haskell-hello];
           withHoogle = true;
