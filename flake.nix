@@ -13,7 +13,13 @@
     in
       {
         overlay = (final: prev: {
-          haskell-hello = final.pkgs.haskell.packages.${ghcVersion}.callPackage ./haskell-hello.nix {  };
+          haskell-hello = let prevHpkgs = final.pkgs.haskell.packages.${ghcVersion};
+                              hmarkUnbroken = prev.pkgs.haskell.lib.markUnbroken;
+                              hdontCheck = prev.pkgs.haskell.lib.dontCheck;
+                          in
+                          final.pkgs.haskell.packages.${ghcVersion}.callPackage ./haskell-hello.nix {
+                            persistent-mongoDB = hdontCheck (hmarkUnbroken (prevHpkgs.persistent-mongoDB));
+                          };
         });
         packages = forAllSystems (system: {
           haskell-hello = nixpkgsFor.${system}.haskell-hello;
