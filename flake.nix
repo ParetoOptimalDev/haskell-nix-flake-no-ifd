@@ -4,7 +4,7 @@
   outputs = { self, nixpkgs }:
     let
       ghcVersion = "ghc925";
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
       nixpkgsFor = forAllSystems (system: import nixpkgs {
         inherit system;
