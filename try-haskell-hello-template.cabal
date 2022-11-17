@@ -68,6 +68,8 @@ executable try-haskell-hello-template
 
     -- Other library packages from which modules are imported.
     build-depends:    base ^>=4.15.1.0
+                    , lens
+                    , amazonka
 
     -- Directories containing source files.
     hs-source-dirs:   app
