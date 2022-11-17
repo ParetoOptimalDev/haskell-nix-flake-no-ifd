@@ -1,7 +1,7 @@
 name: Examples
 on: push
 jobs:
-  nixbuild.net:
+  nixbuild-net:
     uses: nixbuild/nixbuild-action/.github/workflows/ci-workflow.yml@v12
     secrets:
       nixbuild_ssh_key: ${{ secrets.nixbuild_ssh_key }}
