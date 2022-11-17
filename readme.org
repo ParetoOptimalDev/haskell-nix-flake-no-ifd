@@ -1,0 +1,131 @@
+* generated with
+
+
+#+begin_src sh
+$ nix run nixpkgs#haskellPackages.cabal-install init
+Warning: The package list for 'hackage.haskell.org' is 31 days old.
+Run 'cabal update' to get the latest list of available packages.
+What does the package build:
+   1) Library
+ ,* 2) Executable
+   3) Library and Executable
+   4) Test suite
+Your choice? [default: Executable]          
+Do you wish to overwrite existing files (backups will be created) (y/n)? [default: n] 
+Please choose version of the Cabal specification to use:
+   1) 1.24  (legacy)
+   2) 2.0   (+ support for Backpack, internal sub-libs, '^>=' operator)
+   3) 2.2   (+ support for 'common', 'elif', redundant commas, SPDX)
+   4) 2.4   (+ support for '**' globbing)
+ ,* 5) 3.0   (+ set notation for ==, common stanzas in ifs, more redundant commas, better pkgconfig-depends)
+   6) 3.4   (+ sublibraries in 'mixins', optional 'default-language')
+Your choice? [default: 3.0] 
+Package name? [default: try-haskell-hello-template] 
+Package version? [default: 0.1.0.0] 
+Please choose a license:
+   1) BSD-2-Clause
+   2) BSD-3-Clause
+   3) Apache-2.0
+   4) MIT
+   5) MPL-2.0
+   6) ISC
+   7) GPL-2.0-only
+   8) GPL-3.0-only
+   9) LGPL-2.1-only
+  10) LGPL-3.0-only
+  11) AGPL-3.0-only
+  12) GPL-2.0-or-later
+  13) GPL-3.0-or-later
+  14) LGPL-2.1-or-later
+  15) LGPL-3.0-or-later
+  16) AGPL-3.0-or-later
+  17) Other (specify)
+Your choice? 
+Empty input is not a valid choice.
+Your choice? 1
+Author name? [default: paretoOptimalDev] 
+Maintainer email? [default: pareto.optimal@mailfence.com] 
+Project homepage URL? [optional] 
+Project synopsis? [optional] 
+Project category:
+   1) Codec
+   2) Concurrency
+   3) Control
+   4) Data
+   5) Database
+   6) Development
+   7) Distribution
+   8) Game
+   9) Graphics
+  10) Language
+  11) Math
+  12) Network
+  13) Sound
+  14) System
+  15) Testing
+  16) Text
+  17) Web
+  18) Other (specify)
+Your choice? [default: (none)] 
+What is the main module of the executable:
+ ,* 1) Main.hs
+   2) Main.lhs
+   3) Other (specify)
+Your choice? [default: Main.hs] 
+Application directory:
+ ,* 1) app
+   2) exe
+   3) src-exe
+   4) Other (specify)
+Your choice? [default: app] 
+Choose a language for your executable:
+ ,* 1) Haskell2010
+   2) Haskell98
+   3) GHC2021 (requires at least GHC 9.2)
+   4) Other (specify)
+Your choice? [default: Haskell2010] 
+Add informative comments to each field in the cabal file. (y/n)? [default: y] 
+[Log] Using cabal specification: 3.0
+[Log] Creating fresh file LICENSE...
+[Log] Creating fresh file CHANGELOG.md...
+[Log] Creating fresh directory ./app...
+[Log] Creating fresh file app/Main.hs...
+[Log] Creating fresh file try-haskell-hello-template.cabal...
+[Warning] No synopsis given. You should edit the .cabal file and add one.
+[Info] You may want to edit the .cabal file and add a Description field.
+
+$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint:   git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/pod/code/try-haskell-hello-template/.git/
+
+$ nix run nixpkgs#cabal2nix . > haskell-hello.nix
+$ nix flake show
+warning: Git tree '/home/pod/code/try-haskell-hello-template' is dirty
+git+file:///home/pod/code/try-haskell-hello-template
+├───checks
+│   ├───x86_64-darwin
+│   │   └───haskell-hello: derivation 'try-haskell-hello-template-0.1.0.0'
+│   └───x86_64-linux
+│       └───haskell-hello: derivation 'try-haskell-hello-template-0.1.0.0'
+├───defaultPackage
+│   ├───x86_64-darwin: package 'try-haskell-hello-template-0.1.0.0'
+│   └───x86_64-linux: package 'try-haskell-hello-template-0.1.0.0'
+├───devShell
+│   ├───x86_64-darwin: development environment 'ghc-shell-for-try-haskell-hello-│   └───x86_64-linux: development environment 'ghc-shell-for-try-haskell-hello-t├───overlay: Nixpkgs overlay
+└───packages
+    ├───x86_64-darwin
+    │   └───haskell-hello: package 'try-haskell-hello-template-0.1.0.0'
+    └───x86_64-linux
+        └───haskell-hello: package 'try-haskell-hello-template-0.1.0.0'
+
+
+#+end_src
