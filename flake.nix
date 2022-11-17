@@ -24,7 +24,7 @@
                                           in haskellPackages.shellFor {
                                             doCheck = false;
                                             packages = p: [self.packages.${system}.haskell-hello];
-                                            withHoogle = true;
+                                            withHoogle = false;
                                             buildInputs = with haskellPackages; [
                                               cabal-install
                                             ];
